@@ -281,14 +281,14 @@ public class ProductManager {
     // ===========================================================
     public void addForbiddenWord(String word) {
         forbiddenWords.add(word.toLowerCase().trim());
-        System.out.println("✅ Kata '" + word + "' ditambahkan ke daftar terlarang.");
+        System.out.println("true Kata '" + word + "' ditambahkan ke daftar terlarang.");
     }
 
     public void removeForbiddenWord(String word) {
         if (forbiddenWords.remove(word.toLowerCase().trim())) {
-            System.out.println("✅ Kata '" + word + "' dihapus dari daftar terlarang.");
+            System.out.println("true Kata '" + word + "' dihapus dari daftar terlarang.");
         } else {
-            System.out.println("⚠️  Kata '" + word + "' tidak ada di daftar terlarang.");
+            System.out.println("warning  Kata '" + word + "' tidak ada di daftar terlarang.");
         }
     }
 
