@@ -14,19 +14,19 @@ Dibuat sebagai tugas kelompok mata kuliah **Struktur Data & Algoritma** mengguna
 
 ---
 
-## 🎯 Fitur Utama
+## Fitur Utama
 
 | Fitur | Deskripsi | Struktur Data |
 |-------|-----------|---------------|
-| 🔍 **Pengindeksan Teks** | Pencarian produk berdasarkan keyword atau kategori secara efisien | `HashMap<String, List<Product>>` |
-| 🔐 **Filter Kata Terlarang** | Otomatis menyensor kata seperti `palsu`, `kw`, `replika` → `***` | `HashSet<String>` |
-| 📊 **Sorting Katalog** | Urutkan produk berdasarkan rating tertinggi atau harga termurah | `ArrayList` + `PriorityQueue` |
-| ➕ **Manajemen Produk** | Tambah produk baru yang langsung terindeks | `ArrayList<Product>` |
-| ⚙️ **Kelola Kata Terlarang** | Tambah / hapus kata terlarang secara dinamis saat runtime | `HashSet<String>` |
+|  **Pengindeksan Teks** | Pencarian produk berdasarkan keyword atau kategori secara efisien | `HashMap<String, List<Product>>` |
+|  **Filter Kata Terlarang** | Otomatis menyensor kata seperti `palsu`, `kw`, `replika` → `***` | `HashSet<String>` |
+|  **Sorting Katalog** | Urutkan produk berdasarkan rating tertinggi atau harga termurah | `ArrayList` + `PriorityQueue` |
+|  **Manajemen Produk** | Tambah produk baru yang langsung terindeks | `ArrayList<Product>` |
+|  **Kelola Kata Terlarang** | Tambah / hapus kata terlarang secara dinamis saat runtime | `HashSet<String>` |
 
 ---
 
-## 🗂️ Struktur Project
+## Struktur Project
 
 ```
 ProductSummaryManager/
@@ -39,7 +39,7 @@ ProductSummaryManager/
 
 ---
 
-## ⚡ Cara Menjalankan
+## Cara Menjalankan
 
 **Prasyarat:** Java JDK 11 atau lebih baru.
 
@@ -61,28 +61,28 @@ java productmanager.Main
 
 ```
   ╔═══════════════════════════════════════════════════╗
-  ║       PRODUCT SUMMARY MANAGER SYSTEM v1.0        ║
-  ║    Tugas Kelompok — Struktur Data & Algoritma     ║
+  ║      Mc Trading Hall                              ║
+  ║                                                   ║
   ╠═══════════════════════════════════════════════════╣
   ║  Fitur: Indexing | Filter Kata | Sorting Katalog  ║
   ╚═══════════════════════════════════════════════════╝
 
 ╔══════════════════════════════════════╗
-║     PRODUCT SUMMARY MANAGER v1.0    ║
+║     Mc Trading Hall                  ║
 ╠══════════════════════════════════════╣
-║  [1] 📦 Lihat Semua Produk           ║
-║  [2] 🔍 Cari Produk                  ║
-║  [3] 📊 Katalog Terurut (Sorting)    ║
-║  [4] 🔐 Demo Filter Kata Terlarang   ║
-║  [5] ➕ Tambah Produk Baru           ║
-║  [6] ⚙️  Kelola Kata Terlarang       ║
-║  [0] 🚪 Keluar                       ║
+║  [1]  Lihat Semua Produk             ║
+║  [2]  Cari Produk                    ║
+║  [3]  Katalog Terurut (Sorting)      ║
+║  [4]  Demo Filter Kata Terlarang     ║
+║  [5]  Tambah Produk Baru             ║
+║  [6]   Kelola Kata Terlarang         ║
+║  [0]  Keluar                         ║
 ╚══════════════════════════════════════╝
 ```
 
 ---
 
-## 📊 Arsitektur & Analisis Kompleksitas
+##  Arsitektur & Analisis Kompleksitas
 
 ### Pemilihan Struktur Data
 
@@ -123,16 +123,35 @@ forbiddenWordsList.contains("replika")  ❌
 | Sorting produk | **O(n log n)** |
 | Tambah produk + indexing | **O(K)** — K = jumlah keyword |
 
----
 
-## 🧩 Konsep OOP yang Diterapkan
+##  Konsep OOP yang Diterapkan
 
 - **Encapsulation** — Semua field `Product` bersifat `private`, diakses via getter/setter.
 - **Single Responsibility Principle** — Setiap class punya satu tanggung jawab utama.
 - **Separation of Concerns** — Data (`Product`), Logic (`ProductManager`), Presentation (`Main`) dipisah.
 
----
 
-## 📝 Lisensi
 
-Proyek ini dibuat untuk keperluan akademik — Mata Kuliah Struktur Data & Algoritma.
+
+=========================================================== 
+LEMBAR PENILAIAN KONTRIBUSI ANGGOTA KELOMPOK 
+=========================================================== 
+Tema Proyek  : Aplikasi Katalog dan Manajemen Ringkasan Produk 
+Kelompok     : 6 
+ 
+1. Nama Anggota 1 : Diaz Spectral Rabani
+   NIM            : L0125142 
+   Kontribusi     :  Merancang dan membangun arsitektur inti pencarian pada kelas                         productManager, Mengimplementasikan struktur data HashMap untuk pembuatan Inverted Index agar pencarian produk berdasarkan kata kunci (keyword) dan kategori dapat berjalan dengan performa efisien (O(1)), dan Mengimplementasikan struktur data HashSet untuk mengoptimalkan pengecekan dan penyaringan kata terlarang (censoring deskripsi produk) secara case-insensitive.  
+
+ 
+2. Nama Anggota 2 : Humam Sulthon Hakim 
+   NIM            : L0125102 
+   Kontribusi     : Merancang dan membuat kelas entitas/model Product dengan menerapkan prinsip Enkapsulasi OOP (pembuatan komponen private fields, constructor, getter/setter, dan kustomisasi method toString), Mengimplementasikan fitur pengurutan (sorting) katalog pada kelas ProductManager menggunakan struktur data PriorityQueue (Min-Heap) untuk mengurutkan harga produk termurah, dan Menerapkan algoritma Timsort (Collections.sort) dengan memanfaatkan Comparator untuk mengurutkan ranking produk berdasarkan rating tertinggi.  
+
+ 
+ 
+3. Nama Anggota 3 : Alvinas Fajar Saputra 
+   NIM            : L0125126 
+   Kontribusi     : Membangun kelas Main sebagai antarmuka pengguna berbasis Command Line Interface (CLI) interaktif lengkap dengan tampilan menu navigasi menggunakan struktur switch-case, Mengelola penanganan input pengguna menggunakan Scanner dan menyusun metode helper untuk validasi data (readInt dan readDouble) guna menghindari error NumberFormatException saat aplikasi dijalankan, dan Melakukan integrasi sistem, pengujian fungsionalitas keseluruhan alur aplikasi (debugging), dan penyusunan visualisasi data katalog.  
+
+ =========================================================== 
