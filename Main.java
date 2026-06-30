@@ -63,7 +63,7 @@ public class Main {
     // ===========================================================
     private static void printMainMenu() {
         System.out.println("\n" + BOLD + CYAN + "╔══════════════════════════════════════╗");
-        System.out.println(               "║     PRODUCT SUMMARY MANAGER v1.0    ║");
+        System.out.println(               "║     McTradingHall   ║");
         System.out.println(               "╠══════════════════════════════════════╣" + RESET);
         System.out.println(               "║  [1] Lihat Semua Produk              ║");
         System.out.println(               "║  [2] Cari Produk                     ║");
@@ -129,7 +129,7 @@ public class Main {
                     System.out.println("Tidak ada produk yang cocok.");
                 } else {
                     results.forEach(p -> System.out.println("  → " + p));
-                    System.out.printf(YELLOW + "%n⏱️  Waktu pencarian: %.3f ms | Ditemukan: %d produk%n" + RESET,
+                    System.out.printf(YELLOW + "%n Waktu pencarian: %.3f ms | Ditemukan: %d produk%n" + RESET,
                             elapsed / 1_000_000.0, results.size());
                 }
             }
@@ -156,8 +156,8 @@ public class Main {
     // ===========================================================
     private static void menuSorting() {
         printHeader("KATALOG TERURUT");
-        System.out.println("  [1] ⭐ Urutkan berdasarkan Rating Tertinggi");
-        System.out.println("  [2] 💰 Urutkan berdasarkan Harga Termurah");
+        System.out.println("  [1]  Urutkan berdasarkan Rating Tertinggi");
+        System.out.println("  [2]  Urutkan berdasarkan Harga Termurah");
         System.out.println("  [0] Kembali");
 
         int choice = readInt("Pilih: ");
@@ -168,9 +168,9 @@ public class Main {
                 List<Product> sorted = manager.getSortedByRatingDesc();
                 long elapsed = System.nanoTime() - start;
 
-                printHeader("⭐ RANKING PRODUK (Rating Tertinggi → Terendah)");
+                printHeader(" RANKING PRODUK (Rating Tertinggi → Terendah)");
                 printRankedList(sorted);
-                System.out.printf(YELLOW + "%n⏱️  Sorting selesai dalam: %.3f ms (Timsort O(n log n))%n" + RESET,
+                System.out.printf(YELLOW + "%n  Sorting selesai dalam: %.3f ms (Timsort O(n log n))%n" + RESET,
                         elapsed / 1_000_000.0);
             }
             case 2 -> {
@@ -178,9 +178,9 @@ public class Main {
                 List<Product> sorted = manager.getSortedByPriceAsc();
                 long elapsed = System.nanoTime() - start;
 
-                printHeader("💰 PRODUK TERMURAH (Harga Terendah → Tertinggi)");
+                printHeader(" PRODUK TERMURAH (Harga Terendah → Tertinggi)");
                 printRankedList(sorted);
-                System.out.printf(YELLOW + "%n⏱️  Sorting selesai dalam: %.3f ms (PriorityQueue Min-Heap O(n log n))%n" + RESET,
+                System.out.printf(YELLOW + "%n  Sorting selesai dalam: %.3f ms (PriorityQueue Min-Heap O(n log n))%n" + RESET,
                         elapsed / 1_000_000.0);
             }
             case 0 -> { /* kembali */ }
@@ -188,9 +188,9 @@ public class Main {
         }
     }
 
-    // ===========================================================
+   
     //  MENU 4 — DEMO FILTER KATA TERLARANG
-    // ===========================================================
+
     private static void menuFilterDemo() {
         printHeader("DEMO FILTER KATA TERLARANG");
         System.out.println("Produk berikut mengandung kata terlarang dalam deskripsinya:");
@@ -222,9 +222,8 @@ public class Main {
         }
     }
 
-    // ===========================================================
     //  MENU 5 — TAMBAH PRODUK BARU
-    // ===========================================================
+
     private static void menuAddProduct() {
         printHeader("TAMBAH PRODUK BARU");
 
@@ -252,9 +251,8 @@ public class Main {
         System.out.println("   " + newProduct);
     }
 
-    // ===========================================================
     //  MENU 6 — KELOLA KATA TERLARANG
-    // ===========================================================
+ 
     private static void menuForbiddenWords() {
         printHeader("KELOLA KATA TERLARANG");
 
@@ -281,9 +279,8 @@ public class Main {
         }
     }
 
-    // ===========================================================
     //  MENU 7 — CHECKOUT / BELI PRODUK
-    // ===========================================================
+
     /**
      * Alur checkout:
      *  1. Tampilkan katalog agar user pilih produk via ID
@@ -356,9 +353,9 @@ public class Main {
         for (int i = 0; i < products.size(); i++) {
             Product p = products.get(i);
             String medal = switch (i) {
-                case 0 -> "🥇";
-                case 1 -> "🥈";
-                case 2 -> "🥉";
+                case 0 -> "top1";
+                case 1 -> "top2";
+                case 2 -> "top3";
                 default -> String.format("%2d.", i + 1);
             };
             System.out.printf("  %s %s%n", medal, p);
